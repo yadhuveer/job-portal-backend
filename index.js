@@ -25,7 +25,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const server = express();
-
+const PORT = process.env.PORT || 3000;
 server.use(cookieParser());
 //server.use(setLastVisit);
 server.use(express.urlencoded({extended:true}));
@@ -98,7 +98,7 @@ server.post('/register',[(req, res, next) => userInstance.HandleUser(req, res, n
 server.get('/get-session',[userInstance.sendSession]);
 server.get('/lastvisit',[setLastVisit]);
 
-server.listen(3000);
+server.listen(PORT);
 
 
 
