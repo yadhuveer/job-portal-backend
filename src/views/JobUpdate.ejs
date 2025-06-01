@@ -1,0 +1,78 @@
+<%if(error){
+    error.forEach((err)=>{%>
+
+        <div class="alert alert-danger" role="alert">
+            <%=err.msg%>
+        </div>
+<%})
+    
+    }%>
+<form action="/edit" method="post" id="formCss">
+   
+    <h3>Update Job</h3>
+    
+        <input type="hidden" value="<%=id  %>" name="id"/>
+
+    <div>
+    <label for="JobType">Job Type</label>
+    <select id="JobType" name="JobType">
+        <option value="tech">
+            Tech
+        </option>
+        <option value="non-tech">
+            Non Tech
+        </option>
+        
+    </select>
+    </div>
+    
+    <div>
+    <label for="designation">Designation</label>
+    <select id="designation" name="designation">
+        <option value="Mern Developer">Mern Developer</option>
+        <option value="Mean Developer">Mean Developer</option>
+        <option value="Java Developer">Java Developer</option>
+        <option value="Backend Developer">Backend Developer</option>
+
+    </select>
+    </div>
+
+    <div>
+    <label for="location">Enter Job Location</label>
+    <input type="text" name="location" id="location">
+    </div>
+
+    
+    <div>
+    <label for="company">Enter company Name</label>
+    <input type="text" name="company" id="company">
+    </div>
+    
+    <div>
+    <label for="salary">Enter Salary</label>
+    <input type="text" name="salary" id="salary">
+    </div>
+
+    <div>
+    <label for="positions">Total Positions</label>
+    <input type="number" name="positions" id="positions">
+    </div>
+
+    <div>
+    <label for="options">Select Skills required for this job</label>
+    <select id="options" name="options" multiple size="5">
+        <option value="React">React</option>
+        <option value="Angular">Angular</option>
+        <option value="Node">Node</option>
+        <option value="JS">JS</option>
+        <option value="Mongo DB">Mongo DB</option>
+    </select>
+    </div>
+
+    <div>
+    <label for="lastDate">Apply By</label>
+    <input type="date" id="lastDate" name="lastDate">
+    </div>
+
+    <button type="submits">Submit</button>
+</form>

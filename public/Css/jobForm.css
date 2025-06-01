@@ -1,0 +1,20 @@
+#formCss{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: aqua;
+    text-align: center;
+    row-gap: 1rem;
+    width: 90%;
+    margin-left: 5rem;
+  
+}
+
+#formCss div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: gray;
+    border-radius: 1rem;
+    color: white;
+
+}

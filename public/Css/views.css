@@ -1,0 +1,97 @@
+body .container1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+section{
+    width: 70%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    
+    
+    margin-top: 1rem;
+    border: 0.1rem solid black;
+}
+
+header{
+    width: 100%;
+    height: 30%;
+    color: red;
+}
+
+header img{
+    width: 100%;
+    height: 15rem;
+    
+}
+main{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+
+.right{
+    margin-left: 1rem;
+}
+
+#role{
+    color:green;
+}
+
+#applicants{
+    color: red;
+}
+
+#skill{
+    display: flex;
+    gap:0.1rem;
+}
+
+#skill p{
+    border: 0.1rem solid blue;
+    color: blue;
+    padding: 0.1rem;
+}
+
+
+#form{
+    z-index: 3;
+    position: absolute;
+    top:7rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 0.01rem solid black;
+}
+
+form{
+    padding: 1rem;
+    border:0.01rem solid black;
+}
+
+#form button{
+    background-color: green;
+    width: 7rem;
+
+}
+
+form input{
+    margin-left: 0.2rem;
+}
+
+#form p{
+    color:green;
+}
+#head{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#apply{
+    width: 9rem;
+}

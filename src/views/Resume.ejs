@@ -1,0 +1,11 @@
+<% const ext=filePath.split('.')[1];
+if(ext=='pdf'){%>
+    <iframe src="<%=filePath %>" width="100%" height="600px"></iframe>
+
+
+<% }else{ %>
+
+
+    <img src="<%=filePath%>" width="100%" height="600px" />
+
+    <%}%>

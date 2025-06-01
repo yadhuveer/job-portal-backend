@@ -1,0 +1,31 @@
+<div id="jobContainer">
+
+    <% varJob.forEach((job)=>{ %>
+        
+
+        <div id="jobCard">
+            <p><%=job.status%></p>
+            <p id="comp"><%=job.company%></p>
+            <p><%=job.role%></p>
+            <p><i class="fa-solid fa-location-dot"></i><%=job.location%></p>
+            <p><%=job.salary%></h2>
+            <div id="skillSection">
+                <% job.skills.forEach((skill)=>{%>
+
+                    <p><%=skill%></p>
+
+                <%}) %>
+                
+            </div>
+            <a href="/viewDetails/<%=job.id%>" >View Details</a>
+    
+        
+        </div>
+
+
+    
+    <% }) %>
+    
+
+
+</div>

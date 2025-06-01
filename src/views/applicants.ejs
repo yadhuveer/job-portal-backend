@@ -1,0 +1,26 @@
+<diV id="gridContainer">
+
+    
+        <p>#</p>
+        <p>Name</p>
+        <p>Email</p>
+        <p>Contact</p>
+        <p>Resume</p>
+
+    
+    <% var num =0; %>
+    <% applicantsArray.forEach((job)=>{
+        num++%>
+        
+            <p><%=num%></p>
+            <p><%= job.name%></p>
+            <p><%= job.email%></p>
+            <p><%= job.phone%></p>
+            <a href="/viewResume<%= job.fileName%>">View</a>
+
+       
+
+    <%})  %>
+    
+
+</diV>

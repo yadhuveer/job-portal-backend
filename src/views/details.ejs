@@ -1,0 +1,123 @@
+<section>
+<header>
+<img src="/images/register.png" />
+
+</header>
+<main>
+    <h2><%=varJob?.brief || 'No brief available'%></h2>
+    <div>
+    <a href="/edit/<%=varJob?.id || 'No id available' %>"><button>Edit</button></a>
+    <button onclick="deleteProduct('<%=varJob?.id || `No id is available`%>')">Delete</button>
+    
+    </div>
+    <p id="company"><%=varJob?.company || 'No company is available'%></p>
+    <p id="role"><%=varJob?.role || 'No role is available'%></p>
+    <p id="location" class="right"><%=varJob?.location || 'No location is available'%></p>
+    <P id="salary" class="right"><%=varJob?.salary || 'No salary is available'%></P>
+    <p id="lastDtae" class="right">Apply Bys<%=varJob?.lastDate || 'No last date is available'%></p>
+    <p id="openings" class="right">Number of Openings <%=varJob?.no_openings || 'no openings available'%></p>
+
+    <a href="/applicants/<%= varJob?.id || 'No id'%>"id="applicants" class="right">Applicants <%=varJob?.applicants || 'No applicants'%></a>
+    
+    <div id="skill" class="right">
+        <% if(varJob){
+            varJob.skills.forEach((skill)=>{ %>
+            <p><%=skill%></p>
+
+       
+            <%}) 
+        }%>
+
+    </div>
+    <button id="apply" class="right">Apply Now</button>
+</main>
+</section>
+<div id="form">
+    <div id="head">
+     <p>easily</p>
+     <i class="fa-solid fa-xmark"></i>
+    </div>
+     <hr>
+    <br>
+    <form action="/apply/<%= varJob?.id || 'No id available' %>" method="post" enctype="multipart/form-data">
+        <p>Apply in less than one Minute</p>
+        <br>
+        <div>
+
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter Your Name"/>
+        </div>
+        <br>
+
+        <div>
+            
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter your email"/>
+        </div>
+        <br>
+
+        <div>
+            
+            <label for="phone">Contact</label>
+            <input type="tel" name="phone" id="phone" placeholder="+91---- -- ----"/>
+        </div>
+        <br>
+
+        <div>
+            
+            <label for="resume">Resume</label>
+            
+            <input type="file" name="resume" id="resume" placeholder="Choose File"/>
+        </div>
+        <br>
+
+    <button id='submit' type="submit">Submit</button>
+
+    </form>
+</div>
+
+<script>
+    document.querySelector('#form').style.display="none";
+    document.querySelector('i').addEventListener('click',()=>{
+        document.querySelector('#form').style.display="none";
+    });
+
+    document.querySelector('#apply').addEventListener('click',()=>{
+        document.querySelector('#form').style.display="block";
+    });
+    
+
+    document.querySelector('#submit').addEventListener('click',()=>{
+
+        document.querySelector('#form').style.display="none";
+
+    });
+
+    function deleteProduct(id){
+    const result = confirm("Are you sure you want to delete this product ?");
+  
+    if(result){
+        
+        console.log("Inside result");
+       
+         fetch("/delete/"+id,{
+            method: "POST"
+        }).then(response => {
+            if (response.ok) {
+                console.log("Product deleted successfully");
+                // Optionally reload the page after successful deletion
+                //location.reload();
+                window.location.href = '/jobs'
+            } else {
+                console.log("Failed to delete the product");
+            }
+        }).catch(error => {
+            console.log("Error during fetch:", error); // Log any error that occurs during the fetch
+        });
+    }
+    
+}
+
+
+</script>
+
