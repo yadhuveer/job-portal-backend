@@ -47,6 +47,8 @@ server.use('/pdf', express.static(path.join(__dirname, 'public/pdf')));
         cookie:{secure:false},
     })
 );*/
+server.set('trust proxy', 1); 
+
 
 server.use(
   session({
