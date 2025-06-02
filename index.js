@@ -39,18 +39,32 @@ server.use(ejsLayouts);
 
 
 server.use('/pdf', express.static(path.join(__dirname, 'public/pdf')));
-server.use(
+/*server.use(
     session({
         secret:'SecretKey',
         resave:false,
         saveUninitialized:true,
         cookie:{secure:false},
     })
+);*/
+
+server.use(
+  session({
+    secret: 'SecretKey',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: true, 
+      httpOnly: true,
+      sameSite: 'none' 
+    }
+  })
 );
 
 
+
 server.use(cors({
-  origin: true,
+  origin: "job-portal-frontend-rho-lime.vercel.app",
   credentials: true
 }));
 
