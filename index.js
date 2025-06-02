@@ -64,7 +64,7 @@ server.use(
 
 
 server.use(cors({
-  origin: "job-portal-frontend-rho-lime.vercel.app",
+  origin: "https://job-portal-frontend-rho-lime.vercel.app",
   credentials: true
 }));
 
