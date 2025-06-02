@@ -3,6 +3,7 @@ import path from 'path';
 import ejsLayouts from 'express-ejs-layouts';
 import  session from 'express-session';
 import {portalHandler} from './src/controllers/portal.controller.js';
+import fs from 'fs';
 
 import {UserController} from './src/controllers/user.controller.js';
 
@@ -36,7 +37,12 @@ server.set('view engine','ejs');
 server.set("views",path.join(path.resolve(),'src','views'));
 
 server.use(ejsLayouts);
+const uploadDir = path.join(process.cwd(), 'public', 'pdf');
 
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+  console.log('Created upload directory:', uploadDir);
+}
 
 server.use('/pdf', express.static(path.join(__dirname, 'public/pdf')));
 /*server.use(
